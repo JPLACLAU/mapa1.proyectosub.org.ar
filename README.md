@@ -1,2 +1,9 @@
-# mapa1.proyectosub.org.ar
-Mapa 1:  Areas de muestreos de microplásticos en costas de Argentina. Proyecto Sub Foundation.
+# 📓 Mapa 1: Áreas de muestreos - Proyecto Sub
+
+## Objectivos
+
+- Señalizar las distintas áreas donde se han realizado grupos de muestreos para microplásticos costeros
+
+## Version
+
+v0.1

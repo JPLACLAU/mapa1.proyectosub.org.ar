@@ -1,0 +1,76 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Área de Puerto Madryn",
+        "Presencia de microplásticos": true,
+        "deliveryRadius": 40000,
+        "phone": "7",
+        "website": "https://www.proyectosub.org.ar/",
+        "tags": [
+          "Microplásticos primarios",
+          "microplásticos secundarios",
+          "mesoplasticos"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-65.0328301, -42.7654028]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Área de Pirámides",
+        "delivery": true,
+        "deliveryRadius": 15000,
+        "phone": "4",
+        "website": "https://www.proyectosub.org.ar/",
+        "tags": [
+          "Microplásticos primarios",
+          "microplásticos secundarios",
+          "mesoplasticos"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.2808449, -42.5735151]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tierra del Fuego: Canal de Beagle",
+        "delivery": false,
+
+        "phone": "5",
+        "website": "CADIC",
+        "tags": [
+          "Microplásticos primarios",
+          "microplásticos secundarios",
+          "mesoplasticos"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.359025, -54.8380444]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bariloche",
+        "delivery": false,
+        "phone": "3",
+        "website": "grupo local",
+        "tags": ["Microplásticos primarios"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.4369474, -41.1061395]
+      }
+    }
+  ]
+}
