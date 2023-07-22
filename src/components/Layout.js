@@ -13,7 +13,7 @@ const Layout = ({ children, pageName }) => {
   return (
     <>
       <Helmet bodyAttributes={{ class: layoutClass }}>
-        <title>Proyecto Sub</title>
+        <title>ProyectoSub</title>
       </Helmet>
       <div className="wrapper">
         <Header />

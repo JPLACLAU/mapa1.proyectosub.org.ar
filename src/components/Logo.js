@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <span className="logo">
       <img src={logo} alt="Logo" />
-      Proyecto Sub
+      ProyectoSub
     </span>
   );
 };
