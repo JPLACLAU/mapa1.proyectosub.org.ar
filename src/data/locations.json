@@ -5,15 +5,11 @@
       "type": "Feature",
       "properties": {
         "name": "Área de Puerto Madryn",
-        "Presencia de microplásticos": true,
-        "deliveryRadius": 40000,
-        "phone": "7",
-        "website": "https://www.proyectosub.org.ar/",
-        "tags": [
-          "Microplásticos primarios",
-          "microplásticos secundarios",
-          "mesoplasticos"
-        ]
+        "presenciamp": true,
+        "deliveryRadius": 180000,
+        "voluntarios": "7",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "18"
       },
       "geometry": {
         "type": "Point",
@@ -23,16 +19,72 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Área de Pirámides",
-        "delivery": true,
-        "deliveryRadius": 15000,
-        "phone": "4",
-        "website": "https://www.proyectosub.org.ar/",
-        "tags": [
-          "Microplásticos primarios",
-          "microplásticos secundarios",
-          "mesoplasticos"
-        ]
+        "name": "Estancia Providencia",
+        "presenciamp": true,
+        "deliveryRadius": 20000,
+        "voluntarios": "2",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.77359, -42.8593]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Playa Unión, El Golfito",
+        "presenciamp": true,
+        "deliveryRadius": 20000,
+        "voluntarios": "17",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-65.054053, -43.339678]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Puerto Piojo, Camarones",
+        "presenciamp": false,
+        "deliveryRadius": 1,
+        "voluntarios": "3",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-65.6723715, -44.8843016]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Área de Ushuaia",
+        "presenciamp": true,
+        "deliveryRadius": 20000,
+        "voluntarios": "2",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.2165815, -54.8065592]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Puerto Pirámides",
+        "presenciamp": true,
+        "deliveryRadius": 10000,
+        "voluntarios": "3",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "1"
       },
       "geometry": {
         "type": "Point",
@@ -42,30 +94,42 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Tierra del Fuego: Canal de Beagle",
-        "delivery": false,
-
-        "phone": "5",
-        "website": "CADIC",
-        "tags": [
-          "Microplásticos primarios",
-          "microplásticos secundarios",
-          "mesoplasticos"
-        ]
+        "name": "Playa Cormoranes",
+        "presenciamp": false,
+        "deliveryRadius": 1,
+        "voluntarios": "4",
+        "tags": ["ProyectoSUB"],
+        "muestreos": "2"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-68.359025, -54.8380444]
+        "coordinates": [-64.2427159, -42.6921685]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Bariloche",
-        "delivery": false,
-        "phone": "3",
-        "website": "grupo local",
-        "tags": ["Microplásticos primarios"]
+        "name": "Islas Malvinas",
+        "presenciamp": false,
+        "deliveryRadius": 1,
+        "voluntarios": "5",
+        "tags": ["Aurora Expeditions"],
+        "muestreos": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-57.89791, -51.7068]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Área de Bariloche",
+        "presenciamp": true,
+        "deliveryRadius": 10000,
+        "voluntarios": "36",
+        "tags": ["Woodville school"],
+        "muestreos": "1"
       },
       "geometry": {
         "type": "Point",
