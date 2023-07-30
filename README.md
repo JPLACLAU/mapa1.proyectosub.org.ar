@@ -6,4 +6,5 @@
 
 ## Version
 
-v0.1.1
+v0.1.2: changed icons for Point objects and created polygon zones for each sampling area.
+v0.1.1: it just works.

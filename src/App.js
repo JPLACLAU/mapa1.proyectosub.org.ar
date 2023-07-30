@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
-import { Map, TileLayer } from "react-leaflet";
+import { Map, TileLayer, Polygon } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./assets/stylesheets/App.css";
 
 import Layout from "./components/Layout";
 
 import locations from "./data/locations";
-import utensilsIcon from "./assets/shared/mapa2verdepsub.png";
+import utensilsIcon from "./assets/shared/mapa1Cartelv4.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
@@ -43,16 +43,29 @@ function App() {
     });
 
     const geoJson = new L.GeoJSON(locations, {
+      style: (feature) => {
+        if (feature.geometry.type === "Polygon") {
+          feature.geometry.coordinates = feature.geometry.coordinates[0];
+          return {
+            color: "blue",
+            fillColor: "blue",
+            fillOpacity: 0.4,
+          };
+        }
+      },
+
       pointToLayer: (feature, latlng) => {
-        return L.marker(latlng, {
-          icon: new L.Icon({
-            iconUrl: utensilsIcon,
-            iconSize: [26, 26],
-            popupAnchor: [0, -15],
-            shadowUrl: markerShadow,
-            shadowAnchor: [13, 28],
-          }),
-        });
+        if (feature.geometry.type === "Point") {
+          return L.marker(latlng, {
+            icon: new L.Icon({
+              iconUrl: utensilsIcon,
+              iconSize: [77, 77],
+              popupAnchor: [0, -15],
+              shadowUrl: markerShadow,
+              shadowAnchor: [20, 20],
+            }),
+          });
+        }
       },
       onEachFeature: (feature = {}, layer) => {
         const { properties = {}, geometry = {} } = feature;
@@ -68,51 +81,57 @@ function App() {
 
         let deliveryZoneCircle;
 
-        if (deliveryRadius) {
-          deliveryZoneCircle = L.circle(coordinates.reverse(), {
-            radius: deliveryRadius,
-            color: "deeppurple",
-          });
-        }
-
         const popup = L.popup();
-
         const html = `
           <div class="restaurant-popup">
             <h3>${name}</h3>
             <ul>
-              <li>
-                ${tags.join(", ")}
-              </li>
-              <li>
-                <strong>¿Se encontraron microplásticos?:</strong> ${
-                  presenciamp ? "Sí" : "No"
-                }
-              </li>
-              <li>
-                <strong>Promedio de voluntarios:</strong> ${voluntarios}
-              </li>
-              <li>
-                <strong>Cantidad de muestreos:</strong> ${muestreos}
-              </li>
+              <li>${tags.join(", ")}</li>
+              <li><strong>¿Se encontraron microplásticos?:</strong> ${
+                presenciamp ? "Sí" : "No"
+              }</li>
+              <li><strong>Promedio de voluntarios:</strong> ${voluntarios}</li>
+              <li><strong>Cantidad de muestreos:</strong> ${muestreos}</li>
             </ul>
           </div>
         `;
-
         popup.setContent(html);
-
         layer.bindPopup(popup);
 
-        layer.on("mouseover", () => {
-          if (deliveryZoneCircle) {
-            deliveryZoneCircle.addTo(map);
-          }
-        });
+        let mouseInside = false;
+        let closeTimeout = null;
 
-        layer.on("mouseout", () => {
-          if (deliveryZoneCircle) {
-            deliveryZoneCircle.removeFrom(map);
-          }
+        layer.on({
+          mouseover: (e) => {
+            mouseInside = true;
+            if (deliveryRadius) {
+              let center;
+              if (geometry.type === "Point") {
+                center = [...coordinates].reverse();
+              } else if (geometry.type === "Polygon") {
+                center = layer.getBounds().getCenter(); // get center for polygons
+              }
+              deliveryZoneCircle = L.circle(center, {
+                radius: deliveryRadius,
+                color: "deeppurple",
+              });
+              deliveryZoneCircle.addTo(map);
+            }
+            layer.openPopup();
+          },
+          mouseout: (e) => {
+            mouseInside = false;
+            if (deliveryZoneCircle) {
+              deliveryZoneCircle.removeFrom(map);
+            }
+            // Set a timeout before closing the popup
+            closeTimeout = setTimeout(() => {
+              if (!mouseInside) {
+                // Only close the popup if the mouse is still outside the feature
+                layer.closePopup();
+              }
+            }, 300); // Delay in milliseconds
+          },
         });
       },
     });
